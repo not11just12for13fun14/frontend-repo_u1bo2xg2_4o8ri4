@@ -1,76 +1,72 @@
-import Spline from "@splinetool/react-spline";
-import { motion } from "framer-motion";
+import Spline from '@splinetool/react-spline';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Background gradient glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-indigo-50 via-white to-white" />
-      <div className="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-indigo-200/40 blur-3xl" aria-hidden />
-      <div className="absolute -bottom-40 -left-40 w-[32rem] h-[32rem] rounded-full bg-pink-200/40 blur-3xl" aria-hidden />
+    <section className="relative h-[70vh] sm:h-[75vh] lg:h-[80vh] w-full overflow-hidden">
+      {/* Spline background cover */}
+      <div className="absolute inset-0">
+        <Spline
+          scene="https://prod.spline.design/zhZFnwyOYLgqlLWk/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
-        {/* Left copy */}
-        <div>
+      {/* Decorative gradient glows that don't block interaction */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-rose-400/20 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-rose-300/20 blur-3xl" />
+      </div>
+
+      {/* Foreground content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center">
+        <div className="max-w-xl">
           <motion.span
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 ring-1 ring-indigo-200/60 shadow-sm"
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur px-3 py-1 text-xs font-medium text-rose-600 ring-1 ring-rose-200"
           >
-            New Season • Up to 40% off
+            Minimal tech • Interactive feel
           </motion.span>
 
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight"
+            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+            className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-900"
           >
-            Discover products you’ll love
+            Elevate your workspace with modern essentials
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 text-gray-600 text-lg max-w-xl"
+            transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+            className="mt-4 text-neutral-700 max-w-prose"
           >
-            Curated fashion, gadgets, and home essentials from top brands. Fast delivery and easy returns.
+            A curated selection of minimalist gear designed to look sharp and feel effortless. Explore tactile tools that blend into your space.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 flex flex-wrap gap-3"
+            transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
+            className="mt-8 flex flex-wrap items-center gap-3"
           >
             <a
               href="#products"
-              className="px-5 py-3 rounded-full bg-gray-900 text-white font-semibold hover:bg-gray-800 transition-colors shadow-sm"
+              className="inline-flex items-center justify-center rounded-full bg-neutral-900 text-white px-5 py-2.5 text-sm font-medium hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-400"
             >
-              Shop now
+              Shop new arrivals
             </a>
             <a
-              href="#trending"
-              className="px-5 py-3 rounded-full border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors"
+              href="#categories"
+              className="inline-flex items-center justify-center rounded-full bg-white/80 backdrop-blur text-neutral-900 ring-1 ring-neutral-200 px-5 py-2.5 text-sm font-medium hover:bg-white"
             >
-              Explore deals
+              Browse categories
             </a>
           </motion.div>
-        </div>
-
-        {/* Right: Spline scene */}
-        <div className="relative h-[440px] sm:h-[520px] lg:h-[560px]">
-          <Spline
-            scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode"
-            style={{ width: "100%", height: "100%" }}
-          />
-          {/* Decorative gradient rings that don't block interaction */}
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute right-6 top-8 w-24 h-24 rounded-full bg-indigo-500/10 blur-xl" />
-            <div className="absolute left-10 bottom-10 w-32 h-32 rounded-full bg-pink-500/10 blur-2xl" />
-          </div>
         </div>
       </div>
     </section>
